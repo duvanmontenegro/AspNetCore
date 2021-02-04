@@ -20,7 +20,7 @@ namespace AspNetCore.Controllers
             escuela.Pais = "Colombia";
             escuela.Dirección = "Si";
             escuela.TipoEscuela = TiposEscuela.Secundaria;
-            escuela.UniqueId = Guid.NewGuid().ToString();
+            escuela.Id = Guid.NewGuid().ToString();
             */
             var escuela = _context.Escuelas.FirstOrDefault();
             return View(escuela);
