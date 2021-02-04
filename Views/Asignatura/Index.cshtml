@@ -1,0 +1,17 @@
+﻿@Model Asignatura 
+@{
+    ViewData["Title"] = "Informacion asignatura";
+    Layout = "_Layout";//Puede usar otros si los creo
+}
+
+<div class="text-center">
+
+    <p>Modo 1:</p>
+    <p>@ViewData["Title"]</p>
+
+    <p>Nombre:@Model.Nombre</p>
+
+    <p>@ViewBag.CosaDinamica</p>
+    <p>@ViewBag.Fecha</p>
+    <partial name="ObjetoEscuelaBaseSimple" />
+</div>
