@@ -1,0 +1,10 @@
+﻿@Model List<Asignatura>
+               <div>
+                   <div class="text-center">
+                       @foreach (var asignatura in Model)
+                       {
+                           <partial name="ObjetoEscuelaBaseSimple" model=asignatura/>
+
+                       }
+                   </div>
+               </div>
