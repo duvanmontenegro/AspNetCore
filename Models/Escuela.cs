@@ -29,6 +29,7 @@ namespace AspNetCore.Models
         {
 
         }
+        
         public override string ToString()
         {
             return $"Nombre: \"{Nombre}\", Tipo: {TipoEscuela} {System.Environment.NewLine} Pais: {Pais}, Ciudad:{Ciudad}";
