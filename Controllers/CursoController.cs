@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AspNetCore.Controllers
 {
-    public class AlumnoController : Controller
+    public class CursoController : Controller
     {
         /*
         [Route("Alumno/Index")]
@@ -17,23 +17,23 @@ namespace AspNetCore.Controllers
         {
             if (!string.IsNullOrWhiteSpace(id))
             {
-                var a = from alum in _context.Alumnos where alum.Id == id select alum;
+                var a = from cur in _context.Cursos where cur.Id == id select cur;
                 return View(a.SingleOrDefault());
             }
             else
             {
-                return View("MultiAlumno", _context.Alumnos);
+                return View("MultiCurso", _context.Cursos);
             }
 
         }
-        public IActionResult MultiAlumno()
+        public IActionResult MultiCurso()
         {
             ViewBag.CosaDinamica = "algo";
             ViewBag.Fecha = DateTime.Now;
-            return View("MultiAlumno", _context.Alumnos);
+            return View("MultiCurso", _context.Cursos);
         }
         private EscuelaContext _context;
-        public AlumnoController(EscuelaContext contex)
+        public CursoController(EscuelaContext contex)
         {
             _context = contex;
         }
