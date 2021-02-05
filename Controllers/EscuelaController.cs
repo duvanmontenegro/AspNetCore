@@ -9,7 +9,6 @@ namespace AspNetCore.Controllers
 {
     public class EscuelaController : Controller
     {
-        private EscuelaContext _context;
         public IActionResult Index()
         {
             /*
@@ -25,6 +24,7 @@ namespace AspNetCore.Controllers
             var escuela = _context.Escuelas.FirstOrDefault();
             return View(escuela);
         }
+        private EscuelaContext _context;
         public EscuelaController(EscuelaContext contex)
         {
             _context = contex;

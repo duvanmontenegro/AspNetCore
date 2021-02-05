@@ -11,24 +11,21 @@ namespace AspNetCore.Controllers
     {
         public IActionResult Index()
         {
-            var asignaturas = new Asignatura(){
-                Nombre="Programación",Id=Guid.NewGuid().ToString()
-            };
             ViewBag.CosaDinamica = "algo";
             ViewBag.Fecha = DateTime.Now;
-            return View(asignaturas);
+            return View(_context.Asignaturas.FirstOrDefault());
         }
         public IActionResult MultiAsignatura()
         {
-            var listaAsignaturas = new List<Asignatura>(){
-                            new Asignatura{Nombre="Matemáticas",Id=Guid.NewGuid().ToString()} ,
-                            new Asignatura{Nombre="Educación Física",Id=Guid.NewGuid().ToString()},
-                            new Asignatura{Nombre="Castellano",Id=Guid.NewGuid().ToString()},
-                            new Asignatura{Nombre="Ciencias Naturales",Id=Guid.NewGuid().ToString()}
-                };
+           
             ViewBag.CosaDinamica = "algo";
             ViewBag.Fecha = DateTime.Now;
-            return View("MultiAsignatura", listaAsignaturas);
+            return View("MultiAsignatura", _context.Asignaturas);
+        }
+        private EscuelaContext _context;
+        public AsignaturaController(EscuelaContext contex)
+        {
+            _context = contex;
         }
     }
 }
