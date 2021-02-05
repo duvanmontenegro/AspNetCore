@@ -32,6 +32,21 @@ namespace AspNetCore.Controllers
             ViewBag.Fecha = DateTime.Now;
             return View("MultiCurso", _context.Cursos);
         }
+        public IActionResult Create()
+        {
+            ViewBag.Fecha = DateTime.Now;
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Create(Curso curso)
+        {
+            ViewBag.Fecha = DateTime.Now;
+            var escuela = _context.Escuelas.FirstOrDefault();
+            curso.EscuelaId = escuela.Id;
+            _context.Cursos.Add(curso);
+            _context.SaveChanges();
+            return View();
+        }
         private EscuelaContext _context;
         public CursoController(EscuelaContext contex)
         {
